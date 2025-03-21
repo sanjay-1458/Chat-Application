@@ -3,7 +3,8 @@ import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
@@ -21,7 +22,11 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: res.data });
       get().connectSocket();
     } catch (error) {
-      console.log("Error in checkAuth:", error);
+      if (error.response && error.response.status !== 401) {
+        console.error("Error in checkAuth:", error.response.data);
+      } else {
+        console.log("User not logged in (or token expired)");
+      }
       set({ authUser: null });
     } finally {
       set({ isCheckingAuth: false });
@@ -75,8 +80,10 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: res.data });
       toast.success("Profile updated successfully");
     } catch (error) {
-      console.log("error in update profile:", error);
-      toast.error(error.response.data.message);
+      const errorMessage =
+        error.response?.data?.message || error.message || "Unknown error";
+      console.log("error in update profile:", errorMessage);
+      toast.error(errorMessage);
     } finally {
       set({ isUpdatingProfile: false });
     }
