@@ -6,23 +6,22 @@ config();
 
 const seedUsers = [];
 
-// Generate 5 female users
+
 for (let i = 1; i <= 5; i++) {
   seedUsers.push({
     email: `user${i}@example.com`,
     fullName: `User${i}`,
     password: "123456",
-    profilePic: `https://randomuser.me/api/portraits/women/${i}.jpg`, // Female profile pictures
+    profilePic: `https://randomuser.me/api/portraits/women/${i}.jpg`,
   });
 }
 
-// Generate 5 male users
 for (let i = 6; i <= 10; i++) {
   seedUsers.push({
     email: `user${i}@example.com`,
     fullName: `User${i}`,
     password: "123456",
-    profilePic: `https://randomuser.me/api/portraits/men/${i-5}.jpg`, // Male profile pictures (offset by 5)
+    profilePic: `https://randomuser.me/api/portraits/men/${i-5}.jpg`, 
   });
 }
 
