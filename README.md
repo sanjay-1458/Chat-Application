@@ -3,7 +3,8 @@ It is a simple chat application using react and socket.io, with feature like log
 Used Zustand to manage multiple state variables, tracking active sessions and online users (dynamically updated via Socket.io). Implemented JWT-based authentication with tokens that expire in 7 days.
 You can send text as well as pictures in message, it was implemented using socke and cloudinary (which  is an API-first, cloud-based solution that automates processes related to managing images and videos for the web).
 
-![image](https://github.com/user-attachments/assets/0310a134-9dcc-42a6-bd00-2d76f5f9beca)
+<img src="https://github.com/user-attachments/assets/0310a134-9dcc-42a6-bd00-2d76f5f9beca" width="500" alt="image">
+
 
 # Envirinment Variables
 ```
