@@ -11,17 +11,33 @@ It is a simple chat application using React and Socket.io, featuring:
 
 Used Zustand to manage multiple state variables, tracking active sessions and online users (dynamically updated via Socket.io). Implemented JWT-based authentication with tokens that expire in **7 days**. Images are uploaded via **Cloudinary**.
 
+If you want to chat with other person create 2 instamce of the application.
+User 1:
+```
+name: test11
+email: test11@gmail.com
+password: test11password
+```
+
+User 2:
+```
+name: test2
+email: test2@gmail.com
+password: test22password
+```
+
 ---
 
 ## 🖼 Preview
-<img src="https://github.com/user-attachments/assets/0310a134-9dcc-42a6-bd00-2d76f5f9beca" width="500" alt="Chat App Preview">
+<img src="https://github.com/user-attachments/assets/140d84ea-64db-4f66-891f-a8c1d9d40581" width="500" alt="Chat App Preview">
+
 
 ---
 
 ## 🔧 Environment Variables
 Set up the following environment variables in a `.env` file:
 
-```ini
+```
 PORT=5001
 JWT_SECRET=your_secret_key
 MONGODB_URI=your_mongodb_uri
